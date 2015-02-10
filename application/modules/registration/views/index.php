@@ -1,70 +1,12 @@
-<style type="text/css">
+<?php echo link_tag('statics/css/registration.css'); ?>
 
-.color_blanco{
-    color:#ffffff;
-}
-.color_az{
-    background: #65c6bb !important;
-}
+<script type="text/javascript">
 
-.login{
+</script>
 
-    width: 300px;
-    margin-top: 20%;
-    margin-left: 40%;
-}
-.in-login{
-    margin: 20px;
-}
-.bt-login{
-    width: 90%;
-    background: #65c6bb !important;
-    color:#ffffff;
-}
-.header-{
-    height: 50px;
-    margin-bottom: 2px;
-}
-.margen-registro{
-   border-style: solid;
-    border-color: #bceee8 ;
-    background: #bceee8;
-
-
-}
-.color-gris{
-    background: #ccc;
-}
-.margen-registro-no{
-   border-style: solid;
-    border-color: #ccc ;
-    
-
-}
-
-html, body, .fondo-az {
-    
-    background: -webkit-linear-gradient(#65c6bb, #fff)!important; /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#65c6bb, #fff)!important; /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#65c6bb, #fff)!important; /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#65c6bb, #fff)!important; /* Standard syntax (must be last) */
-
-    background-repeat: no-repeat;
-}
-
-
-
-.pad{
-    padding: 10px;
-}
-.fondo-blanco{
-    background: #fff !important;
-}
-
-</style>
-
-<?php echo form_open('registration/saveUser', array('onsubmit'=>'')); ?>
+<?php echo form_open('registration/saveUser', array('id'=>'register')); ?>
 <script src='https://www.google.com/recaptcha/api.js'></script>
+
 
 
 <div class="row fondo-blanco">
@@ -96,17 +38,35 @@ html, body, .fondo-az {
 
             <div class="row">
                 <div class="form-group col-lg-4">
-                <input type="text" class="form-control" id="ejemplo_email_1"
-                           placeholder="Nombre">
+
+                <input type="text" class="form-control" id="medicoNombre" name="save[medicoNombre]"
+                           placeholder="Nombre" >
                  </div>
                  <div class="form-group col-lg-4">
-                    <input type="text" class="form-control" id="ejemplo_email_1"
+                    <input type="text" class="form-control" id="medicoAPaterno" name="save[medicoAPaterno]"
                            placeholder="Apellido paterno">
                  </div>
                  <div class="form-group col-lg-4">
-                    <input type="text" class="form-control" id="ejemplo_email_1"
+                    <input type="text" class="form-control" id="medicoAMaterno" name="save[medicoAMaterno]"
                            placeholder="Apellido materno">
                  </div>
+            </div>
+
+            
+
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <label>
+                      <input type="radio" name="save[medicoSexo]" value="1" id=""> Hombre
+                    </label>
+                
+                 </div>
+                 <div class="form-group col-lg-6">
+                    <label>
+                      <input type="radio" name="save[medicoSexo]" value="2" id=""> Mujer
+                    </label>
+                 </div>
+                 
             </div>
 
             <div class="row">
@@ -115,24 +75,24 @@ html, body, .fondo-az {
 
             <div class="row">
                 <div class="form-group col-lg-4">
-                    <select class="form-control">
-                        <option>Dìa</option>
+                    <select class="form-control" id="dia" name="fecha[dia]">
+                        <option value="0">Dìa</option>
                         <?php for($i=1;$i<=31;$i++):?>
                         <option value="<?php echo $i;?>"><?php echo $i;?></option>
                     <?php endfor;?>
                     </select>
                  </div>
                  <div class="form-group col-lg-4">
-                    <select class="form-control">
-                        <option>Mes</option>
+                    <select class="form-control" id="mes" name="fecha[mes]">
+                        <option value="0">Mes</option>
                         <?php for($i=1;$i<=12;$i++):?>
                         <option value="<?php echo $i;?>"><?php echo $i;?></option>
                     <?php endfor;?>
                     </select>
                  </div>
                  <div class="form-group col-lg-4">
-                    <select class="form-control">
-                        <option>Año</option>
+                    <select class="form-control" id="anio" name="fecha[anio]">
+                        <option value="0">Año</option>
                         <?php for($i=1950;$i<=1994;$i++):?>
                         <option value="<?php echo $i;?>"><?php echo $i;?></option>
                     <?php endfor;?>
@@ -146,61 +106,62 @@ html, body, .fondo-az {
 
             <div class="row">
                 <div class="form-group col-lg-4">
-                       <select name="state" id="state" class="form-control">
-                        <option>Estado</option>
-                        <option value="Aguascalientes">Aguascalientes</option>
-                        <option value="Baja California">Baja California</option>
-                        <option value="Baja California Sur">Baja California Sur</option>
-                        <option value="Campeche">Campeche</option>
-                        <option value="Chiapas">Chiapas</option>
-                        <option value="Chihuahua">Chihuahua</option>
-                        <option value="Coahuila">Coahuila</option>
-                        <option value="Colima">Colima</option>
-                        <option value="Distrito Federal">Distrito Federal</option>
-                        <option value="Durango">Durango</option>
-                        <option value="Estado de México">Estado de México</option>
-                        <option value="Guanajuato">Guanajuato</option>
-                        <option value="Guerrero">Guerrero</option>
-                        <option value="Hidalgo">Hidalgo</option>
-                        <option value="Jalisco">Jalisco</option>
-                        <option value="Michoacán">Michoacán</option>
-                        <option value="Morelos">Morelos</option>
-                        <option value="Nayarit">Nayarit</option>
-                        <option value="Nuevo León">Nuevo León</option>
-                        <option value="Oaxaca">Oaxaca</option>
-                        <option value="Puebla">Puebla</option>
-                        <option value="Querétaro">Querétaro</option>
-                        <option value="Quintana Roo">Quintana Roo</option>
-                        <option value="San Luis Potosí">San Luis Potosí</option>
-                        <option value="Sinaloa">Sinaloa</option>
-                        <option value="Sonora">Sonora</option>
-                        <option value="Tabasco">Tabasco</option>
-                        <option value="Tamaulipas">Tamaulipas</option>
-                        <option value="Tlaxcala">Tlaxcala</option>
-                        <option value="Veracruz">Veracruz</option>
-                        <option value="Yucatán">Yucatán</option>
-                        <option value="Zacatecas">Zacatecas</option>
+                       <select name="save[medicoEstado]" id="medicoEstado" class="form-control">
+                        <option value="0">Estado</option>
+                        <option value="1">Aguascalientes</option>
+                        <option value="2">Baja California</option>
+                        <option value="3">Baja California Sur</option>
+                        <option value="4">Campeche</option>
+                        <option value="5">Chiapas</option>
+                        <option value="6">Chihuahua</option>
+                        <option value="7">Coahuila</option>
+                        <option value="8">Colima</option>
+                        <option value="9">Distrito Federal</option>
+                        <option value="10">Durango</option>
+                        <option value="11">Estado de México</option>
+                        <option value="12">Guanajuato</option>
+                        <option value="13">Guerrero</option>
+                        <option value="14">Hidalgo</option>
+                        <option value="15">Jalisco</option>
+                        <option value="16">Michoacán</option>
+                        <option value="17">Morelos</option>
+                        <option value="18">Nayarit</option>
+                        <option value="19">Nuevo León</option>
+                        <option value="20">Oaxaca</option>
+                        <option value="21">Puebla</option>
+                        <option value="22">Querétaro</option>
+                        <option value="23">Quintana Roo</option>
+                        <option value="24">San Luis Potosí</option>
+                        <option value="25">Sinaloa</option>
+                        <option value="26">Sonora</option>
+                        <option value="27">Tabasco</option>
+                        <option value="28">Tamaulipas</option>
+                        <option value="29">Tlaxcala</option>
+                        <option value="30">Veracruz</option>
+                        <option value="31">Yucatán</option>
+                        <option value="32">Zacatecas</option>
                     </select> 
                 </div>
 
                 <div class="form-group col-lg-4">
-                        <input type="text" class="form-control" id="ejemplo_email_1"
+
+                        <input type="text" class="form-control" id="medicoMunicipio" name="save[medicoMunicipio]"
                            placeholder="Municipio">
                 </div>
 
                 <div class="form-group col-lg-4">
-                        <input type="text" class="form-control" id="ejemplo_email_1"
+                        <input type="text" class="form-control" id="medicoColonia" name="save[medicoColonia]"
                            placeholder="Colonia">
                 </div>
             </div>
 
             <div class="row">
                 <div class="form-group col-lg-6">
-                        <input type="text" class="form-control" id="ejemplo_email_1"
+                        <input type="text" class="form-control" id="medicoCalle" name="save[medicoCalle]"
                            placeholder="Calle">
                 </div>
                 <div class="form-group col-lg-6">
-                        <input type="text" class="form-control" id="ejemplo_email_1"
+                        <input type="text" class="form-control" id="medicoCP" name="save[medicoCP]"
                            placeholder="Codigo postal">
                 </div>
             </div>
@@ -210,8 +171,8 @@ html, body, .fondo-az {
             </div>
 
             <div class="row">
-                <select class="form-control">
-                        <option>Especialidad</option>
+                <select class="form-control" id="medicoEspecialidad" name="save[medicoEspecialidad]">
+                        <option value="0">Especialidad</option>
                         
                         <option value="1">Medico</option>
                         <option value="2">Dentista</option>
@@ -224,7 +185,7 @@ html, body, .fondo-az {
             </div>
 
             <div class="row">
-                    <input type="text" class="form-control" id="ejemplo_email_1"
+                    <input type="text" class="form-control" id="medicoCedula" name="save[medicoCedula]"
                            placeholder="Cedula">
             </div>
 
@@ -234,11 +195,11 @@ html, body, .fondo-az {
 
             <div class="row">
                 <div class="form-group col-lg-6">
-                        <input type="text" class="form-control" id="ejemplo_email_1"
+                        <input type="text" class="form-control" id="medicoTelFijo" name="save[medicoTelFijo]"
                            placeholder="Fijo">
                 </div>
                 <div class="form-group col-lg-6">
-                        <input type="text" class="form-control" id="ejemplo_email_1"
+                        <input type="text" class="form-control" id="medicoTelMobil" name="save[medicoTelMobil]"
                            placeholder="Mobil">
                 </div>
             </div>
@@ -249,11 +210,11 @@ html, body, .fondo-az {
 
             <div class="row">
                 <div class="form-group col-lg-6">
-                        <input type="text" class="form-control" id="ejemplo_email_1"
+                        <input type="text" class="form-control" id="medicoEmail" name="save[medicoEmail]"
                            placeholder="Email">
                 </div>
                 <div class="form-group col-lg-6">
-                        <input type="text" class="form-control" id="ejemplo_email_1"
+                        <input type="text" class="form-control" id="emailMedico"
                            placeholder="Repetir Email">
                 </div>
             </div>
@@ -264,11 +225,11 @@ html, body, .fondo-az {
 
             <div class="row">
                 <div class="form-group col-lg-6">
-                        <input type="password" class="form-control" id="ejemplo_email_1"
+                        <input type="password" class="form-control" id="medicoPassword" name="save[medicoPassword]"
                            placeholder="Contraseña">
                 </div>
                 <div class="form-group col-lg-6">
-                        <input type="password" class="form-control" id="ejemplo_email_1"
+                        <input type="password" class="form-control" id="passwordMedico"
                            placeholder="Repetir Contraseña">
                 </div>
             </div>
@@ -289,7 +250,7 @@ html, body, .fondo-az {
             <div class="row">
                 <div class="checkbox">
                     <label>
-                      <input type="checkbox"> Acepto los terminos y condiciones de uso y politica de privacidad de Rhinomedic
+                      <input type="checkbox" id="politicasTerminos"> Acepto los terminos y condiciones de uso y politica de privacidad de Rhinomedic
                     </label>
                   </div>
             </div>
